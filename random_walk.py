@@ -14,17 +14,20 @@ Reflection upon solution:
 
 #### a)
 def random_walk():
-    cur = (0,0)
+    cur = (0, 0)
     yield cur
     while True:
-        x = random.choice([-1, 0, 1, 0])
-        y = random.choice([-1, 0, 1, 0])
+        x, y = 0, 0
+        while x == 0 and y == 0:
+            # continue generating random values for x and y until one of them is non-zero
+            x = random.choice([-1, 0, 1, 0])
+            y = random.choice([-1, 0, 1, 0])
         cur = cur[0] + x, cur[1] + y
         yield cur
 
 #### b)
 # Simulate random walk
-L = list(itertools.islice(random_walk(), 0, 1000000))
+L = list(itertools.islice(random_walk(), 0, 100000))
 counter = collections.Counter(L) # Count occurences of points
 
 # Find bounds
