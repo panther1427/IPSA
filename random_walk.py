@@ -18,7 +18,7 @@ def random_walk():
     yield cur
     while True:
         x, y = 0, 0
-        while x == 0 and y == 0:
+        while x == 0 or y == 0:
             # continue generating random values for x and y until one of them is non-zero
             x = random.choice([-1, 0, 1, 0])
             y = random.choice([-1, 0, 1, 0])
